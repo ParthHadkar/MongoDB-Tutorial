@@ -1,0 +1,34 @@
+use db;
+
+show dbs // List all databases
+use ecommerce // Create or switch to a database
+show collections // List all collections in the current DB
+db.dropDatabase() // Drop current database
+
+db.FirstCollection.insertOne({"name": "Rahul", "message": "Im am rahul", "phone":9876543211});
+
+db.FirstCollection.insertMany([{"name": "Rahul", "message": "Im am rahul", "phone":9876543211},
+                            {"name": "Diya", "message": "Im am Diya", "phone":9342543211}
+                            ]);
+
+
+Stage Description Example Use
+$match Filter documents
+{ category:
+"Fruit" }
+$project Show/hide fields or create new ones item , price
+$group
+Group data and calculate sums,
+averages
+total sales per
+category
+$sort Sort results Sort by total sales
+$limit Limit number of results Top 3 items       
+
+
+14. Useful Admin Commands
+db.stats() // Show DB stats
+db.serverStatus() // Server info
+db.products.countDocuments() // Count documents
+db.products.renameCollection("items") // Rename collection
+db.products.drop() // Drop collection
