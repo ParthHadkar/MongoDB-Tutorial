@@ -21,4 +21,10 @@ public interface OrderRepository extends MongoRepository<Order, String> {
     List<Order> findOrdersByStatusAboveAndQuantity(@Param("status") String status,
                                  @Param("minQty") int minQuantity);
 
+    List<Order> findByAddressCity(String pCity);
+
+    @Query(value = "{ 'address.city': ?0 }", fields = "{ '_id': 1, 'quantity': 1 }")
+    List<Order> findByCity(String pCity); // 'products': 0 // excludes the products field
+
+
 }
